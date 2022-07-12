@@ -1,0 +1,15 @@
+pipeline {
+    agent 
+    stages {
+        stage('git') { 
+            steps {
+                git 'https://github.com/Bhushankoparkar/demo.git'
+            }
+        }
+        stage('dir_create') { 
+            steps {
+                sh 'mkdir raju'
+            }
+        }
+    }
+}

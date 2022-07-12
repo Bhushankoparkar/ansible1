@@ -1,1 +1,25 @@
-bhusgan
+pipeline {
+    agent 
+    stages {
+        stage('build') { 
+            steps {
+                echo 'this is my home'
+            }
+        }
+        stage('git') { 
+            steps {
+                git 'https://github.com/Bhushankoparkar/newrepo.git' 
+            }
+        }
+        stage('dir_create') { 
+            steps {
+                sh 'mkdir raju'
+            }
+        }
+        stage('Q.A') { 
+            steps {
+                echo 'my book is open'
+            }
+        }
+    }
+}    
