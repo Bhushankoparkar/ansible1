@@ -9,4 +9,5 @@ job('git_item') {
     }
     steps {
         shell('echo good morning')
+    }
 }
