@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('gitpull') { 
             steps {
-                git 'https://github.com/Bhushankoparkar/ansible1.git'
+                git 'https://github.com/Bhushankoparkar/studentapp-ui.git'
             }
         }
         stage('maven_install') { 
@@ -24,7 +24,7 @@ pipeline {
                 sh 'sudo /mnt/apache-tomcat-8.5.81/bin/catalina.sh start'
             }
         }
-        stage('copy_student.war') { 
+        stage('copy_student_war') { 
             steps {
                 sh 'sudo cp /home/ubuntu/workspace/pipeline_for_maven/target/studentapp-2.2-SNAPSHOT.war /mnt/apache-tomcat-8.5.81/webapps/'
             }
