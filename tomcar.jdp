@@ -7,7 +7,7 @@ pipeline {
                 git 'https://github.com/Bhushankoparkar/ansible1.git'
             }
         }
-        stage('maven install') { 
+        stage('maven_install') { 
             steps {
                 sh 'sudo -i'
                 sh 'sudo apt update'
@@ -24,7 +24,7 @@ pipeline {
                 sh 'sudo /mnt/apache-tomcat-8.5.81/bin/catalina.sh start'
             }
         }
-        stage('copy student.war file') { 
+        stage('copy_student.war') { 
             steps {
                 sh 'sudo cp /home/ubuntu/workspace/pipeline_for_maven/target/studentapp-2.2-SNAPSHOT.war /mnt/apache-tomcat-8.5.81/webapps/'
             }
