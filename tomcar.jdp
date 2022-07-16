@@ -1,9 +1,10 @@
 pipeline {
     agent {label 'label-1'} 
+
     stages {
         stage('gitpull') { 
             steps {
-                git 'git@github.com:Bhushankoparkar/ansible1.git'
+                git 'https://github.com/Bhushankoparkar/ansible1.git'
             }
         }
         stage('maven install') { 
