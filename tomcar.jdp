@@ -10,20 +10,21 @@ pipeline {
         stage('maven install') { 
             steps {
                 sh 'sudo -i'
+                sh 'sudo apt update'
                 sh 'sudo apt install openjdk-11-jre-headless -y'
                 sh 'sudo apt install maven -y'
                 sh 'sudo mvn clean package'
-                sh 'sudo apt install'
+                sh 'sudo apt update'
             }
         }
-        stage('tomcat_server') { 
+        stage('tomcat_install') { 
             steps {
                 sh 'sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.81/bin/apache-tomcat-8.5.81.tar.gz'
                 sh 'tar -xvzf /mnt/apache-tomcat-8.5.81.tar/gz -C /mnt'
                 sh 'sudo /mnt/apache-tomcat-8.5.81/bin/catalina.sh start'
             }
         }
-        stage('tomcat_server') { 
+        stage('tomcat_install') { 
             steps {
                 sh 'cp /bhushan/studentapp-ui/target/studentapp-2.2-SNAPSHOT.war /mnt/apache-tomcat-8.5.81/webapps/'
             }
